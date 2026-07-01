@@ -1,6 +1,6 @@
 {
-  "name": "MyWebSite",
-  "short_name": "MySite",
+  "name": "Rin_WebSite",
+  "short_name": "RW_Site",
   "icons": [
     {
       "src": "/assets/icons/web-app-manifest-192x192.png?v=2026.06.29",

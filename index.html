@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rin_sporfolio — About</title>
+  <meta name="description" content="Python developer, building fast and accessible apps. Portfolio of Rin Watanabe.">
+
+  <!-- Open Graph (index.html only) -->
+  <meta property="og:title" content="Rin_sporfolio">
+  <meta property="og:description" content="Python developer, building fast and accessible apps.">
+  <meta property="og:image" content="/assets/images/open_graph_image_optimized.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+
+  <!-- Google Fonts: Roboto Serif variable font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wdth,wght,GRAD@0,8..144,50..150,100..900,-50..100&display=swap" rel="stylesheet">
+
+  <!-- Favicon (do not modify paths or version strings) -->
+  <link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png?v=2026.06.29" sizes="96x96" />
+  <link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg?v=2026.06.29" />
+  <link rel="shortcut icon" href="/assets/icons/favicon.ico?v=2026.06.29" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=2026.06.29" />
+  <meta name="apple-mobile-web-app-title" content="Rin_portf" />
+  <link rel="manifest" href="/assets/icons/site.webmanifest?v=2026.06.29" />
+
+  <link rel="stylesheet" href="/styles/styles.css">
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+
+  <!-- Global header (identical on all pages — edit nav links here) -->
+  <div class="site-header-wrapper">
+    <header class="site-header">
+      <a href="index.html" class="header-logo">
+        <img src="/assets/images/logo_updated.svg"
+             alt="Rin_sporfolio logo"
+             role="img"
+             aria-label="Rin_sporfolio logo"
+             height="36">
+      </a>
+
+      <nav class="header-nav" aria-label="Primary navigation">
+        <ul>
+          <li><a href="blogs.html">Blogs</a></li>
+          <li><a href="achievements.html">Achievements</a></li>
+          <li><a href="index.html" class="is-active">About</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <a href="https://www.linkedin.com/in/ruqayya-waheed-9b3412359"
+           class="btn-linkedin"
+           target="_blank"
+           rel="noopener noreferrer">LinkedIn</a>
+      </div>
+
+      <button class="menu-toggle"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-menu"
+              aria-label="Open navigation menu">
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+        <span class="menu-toggle-bar"></span>
+      </button>
+    </header>
+
+    <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile navigation">
+      <ul>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="achievements.html">Achievements</a></li>
+        <li><a href="index.html" class="is-active">About</a></li>
+      </ul>
+      <a href="https://www.linkedin.com/in/ruqayya-waheed-9b3412359"
+         class="btn-linkedin"
+         target="_blank"
+         rel="noopener noreferrer">LinkedIn</a>
+    </nav>
+  </div>
+
+  <!-- Hero section (edit headline and CTA in HTML below) -->
+  <section class="hero" aria-label="Introduction">
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+      poster="/assets/images/optimized_fallback_hero_image.svg">
+      <source
+        src="/assets/images/optimized_Frame_len_increased.webm"
+        type="video/webm">
+    </video>
+    <div class="hero-overlay" aria-hidden="true"></div>
+    <div class="hero-content">
+      <h1>Python developer, building fast and accessible apps.</h1>
+      <p>I design &amp; build responsive Django applications integrating UI frameworks for seamless user experience.</p>
+      <a href="#projects" class="btn-primary">See my work</a>
+    </div>
+  </section>
+
+  <!-- Two-column layout: main content + TOC (no left sidebar) -->
+  <div class="page-layout">
+    <button class="toc-toggle"
+            type="button"
+            aria-expanded="false"
+            aria-controls="toc-sidebar">
+      On this page
+    </button>
+
+    <div class="content-grid">
+      <main id="main-content" class="main-content">
+
+        <!-- About Me (edit content below) -->
+        <section id="about-me" aria-labelledby="about-me-heading">
+          <h2 id="about-me-heading">About Me</h2>
+          <ul>
+            <li>I am a Python Developer who loves to create innovative solutions using my skills.</li>
+            <li>My technical skills include but are not limited to C#, Linux, MySQL (Oracle SQL), Python, HTML, CSS.</li>
+            <li>Currently, I am pursuing a cybersecurity certification program from ISC2.</li>
+            <li>I currently stay and work in Dubai, U.A.E.</li>
+          </ul>
+        </section>
+
+        <!-- Work Experience (edit content below) -->
+        <section id="work-experience" aria-labelledby="work-experience-heading">
+          <h2 id="work-experience-heading">Work Experience</h2>
+          <ul>
+            <li>Company Name: BackOffice FZ.LLC (Dubai Outsource City) 2023-2025</li>
+            <li>Worked as a Data Analyst, maintained and optimized SQL queries, and delivered interactive Dashboards via PowerBI/Tableau.</li>
+            <li>Top achievement: Proficiently Managed and designed CI/CD pipelines.</li>
+          </ul>
+
+          <h3 id="skills-and-tools">Skills and Tools</h3>
+          <table class="skills-table">
+            <thead>
+              <tr>
+                <th scope="col">Category</th>
+                <th scope="col">Skills</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">Languages</th>
+                <td>
+                  <span class="skill-badge">Python</span>
+                  <span class="skill-badge">C/C++</span>
+                  <span class="skill-badge">SQL (MySQL)</span>
+                  <span class="skill-badge">Bash/Shell Scripting</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Operating Systems</th>
+                <td>
+                  <span class="skill-badge">Linux</span>
+                  <span class="skill-badge">Git/GitHub</span>
+                  <span class="skill-badge">Docker</span>
+                  <span class="skill-badge">Virtual Environments</span>
+                </td>
+              </tr>
+              <tr>
+                <th scope="row">Backend &amp; Data Engineering</th>
+                <td>
+                  <span class="skill-badge">REST APIs</span>
+                  <span class="skill-badge">ELT/ETL Pipelines</span>
+                  <span class="skill-badge">Web scraping</span>
+                  <span class="skill-badge">Multi-threading</span>
+                  <span class="skill-badge">Data hashing</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <h3 id="education-and-certifications">Education and Certifications</h3>
+          <ul>
+            <li>MBA in Data Analytics and Supply Chain Management.</li>
+            <li>Python and C certified</li>
+          </ul>
+        </section>
+
+        <!-- Projects (edit content below) -->
+        <section id="projects" aria-labelledby="projects-heading">
+          <h2 id="projects-heading">Projects</h2>
+
+          <h3 id="web-spyyder">Web Spyyder</h3>
+          <p><strong>Description:</strong> Designed a high performance web scraper using, and optimized it through multithreading.</p>
+          <p><strong>Role:</strong> Web scraping tool with features like data hashing, multithreading to prevent redundant processing, managed code reproducibility and collaborative development using Git Version Control, reducing server load by 20%.</p>
+          <p><strong>Tech Stack:</strong> <span class="skill-badge">Python</span> <span class="skill-badge">REST APIs</span> <span class="skill-badge">Git</span></p>
+          <p><strong>Highlights:</strong> Reduced server load by 20% during data processing. Managed code reproducibility.</p>
+          <p><strong>Link:</strong> <a href="https://github.com/ruqzzz/web_spyder_project" target="_blank" rel="noopener noreferrer">https://github.com/ruqzzz/web_spyder_project</a></p>
+        </section>
+
+        <!-- Contact form (edit action URL and fields below) -->
+        <section id="contact-me" aria-labelledby="contact-me-heading">
+          <h2 id="contact-me-heading">Contact me</h2>
+          <form class="contact-form"
+                action="https://formspree.io/f/xlgypwyl"
+                method="POST">
+            <div class="form-group">
+              <label for="contact-name">Your Name</label>
+              <input type="text" id="contact-name" name="name" required aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Your Email</label>
+              <input type="email" id="contact-email" name="email" required aria-required="true">
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="4" required aria-required="true"></textarea>
+            </div>
+            <button type="submit" class="btn-primary">Send Message</button>
+          </form>
+
+          <div class="contact-links">
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/ruqayya-waheed-9b3412359" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/ruqayya-waheed-9b3412359</a></p>
+            <p>GitHub: <a href="https://github.com/ruqzzz" target="_blank" rel="noopener noreferrer">https://github.com/ruqzzz</a></p>
+          </div>
+        </section>
+
+      </main>
+
+      <!-- TOC column (auto-populated by scripts/main.js) -->
+      <aside id="toc-sidebar"
+             class="toc-sidebar"
+             aria-label="On this page">
+        <p class="toc-label">On this page</p>
+        <nav aria-label="Table of contents">
+          <!-- TOC links generated by JavaScript -->
+        </nav>
+      </aside>
+    </div>
+  </div>
+
+  <!-- Global footer (identical on all pages) -->
+  <footer class="site-footer">
+    <p><a href="https://github.com/ruqzzz" target="_blank" rel="noopener noreferrer">https://github.com/ruqzzz</a></p>
+    <p><a href="https://www.linkedin.com/in/ruqayya-waheed-9b3412359" target="_blank" rel="noopener noreferrer">https://www.linkedin.com/in/ruqayya-waheed-9b3412359</a></p>
+    <p>&copy; 2026 Rin Watanabe. All rights reserved.</p>
+  </footer>
+
+  <script src="/scripts/main.js"></script>
+</body>
+</html>

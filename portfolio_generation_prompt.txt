@@ -1,0 +1,722 @@
+portfolio generation prompt for the model
+═══════════════════════════════════════════════════════════════
+SITE OVERVIEW
+═══════════════════════════════════════════════════════════════
+
+Site name: Rin_sporfolio
+Owner: Rin Watanabe
+Purpose: Static personal portfolio website with a global header,
+hero section, and a two-column responsive layout (center main
+content column + right "On this page" TOC column).
+Hosting: Static site. GitHub repository connected to Cloudflare
+Pages. No custom domain — use the default .pages.dev URL in all
+deployment instructions.
+
+IMPORTANT: All asset files already exist in the repository.
+Do not generate, replace, or create placeholder versions of any
+asset file listed in the ASSETS section below.
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 1 — COLOUR SYSTEM: FOLLOW EXACTLY, DO NOT DEVIATE
+═══════════════════════════════════════════════════════════════
+
+Palette definitions:
+  PRIMARY:    #0FBA4C  (green)
+              #2168EB  (blue)
+  SECONDARY:  #800FF2  (purple)
+  ACCENT:     #0B0859  (deep navy)
+              #1E0D8C  (dark indigo)
+  BG:         #FFFFFF  (white — default page background)
+  TEXT:       #000000  (black — default body text)
+
+TEXT COLOUR RULES — THIS IS THE MOST IMPORTANT SECTION
+
+Rule 1 — Default text:
+  When the background of a section or element is #FFFFFF (white),
+  all text must be #000000 (black).
+
+Rule 2 — Light-on-dark override:
+  When the background of a section, card, button, banner, navbar,
+  footer, tag, badge, or any other element is filled with ANY of
+  the following colours:
+    #0FBA4C  (primary green)
+    #2168EB  (primary blue)
+    #800FF2  (secondary purple)
+    #0B0859  (accent deep navy)
+    #1E0D8C  (accent dark indigo)
+  Then ALL text, headings, labels, icons, and links inside that
+  element must be #FFFFFF (white). Never use #000000 on a dark
+  or saturated background.
+
+Rule 3 — Never mix:
+  Do not place #000000 text on any PRIMARY, SECONDARY, or ACCENT
+  background. Do not place coloured text (e.g. #0FBA4C or #2168EB)
+  on a #000000 background unless explicitly instructed.
+
+COLOUR USAGE RULES
+
+PRIMARY #0FBA4C (green):
+  - Main CTA buttons (e.g. "See My Work", "Send Message")
+  - Active nav link indicator
+  - Hover state highlights on links and buttons
+  - Text inside must always be #FFFFFF when used as fill/background
+
+PRIMARY #2168EB (blue):
+  - Hyperlinks in body text
+  - Section dividers or accent lines
+  - Outlined secondary buttons: border #2168EB, text #2168EB on
+    white background. If button is filled with #2168EB, text
+    must switch to #FFFFFF.
+
+SECONDARY #800FF2 (purple):
+  - Skill tags and badge backgrounds
+  - Highlighted labels
+  - Text inside must always be #FFFFFF
+
+ACCENT #0B0859 / #1E0D8C (deep navy / dark indigo):
+  - Hero section background
+  - Footer background
+  - Global header background
+  - Dark-themed panels
+  - All text, headings, and subtext inside must be #FFFFFF
+
+BG #FFFFFF:
+  - Default page background
+  - Card backgrounds inside dark sections
+  - Text on #FFFFFF is always #000000
+
+TEXT #000000:
+  - Default body copy, paragraphs, labels
+  - Only used when background is #FFFFFF
+  - Never use on PRIMARY, SECONDARY, or ACCENT backgrounds
+
+CONTRAST REMINDER:
+Any element with a background from PRIMARY, SECONDARY, or ACCENT
+is a dark or saturated surface. All content on it (text, subtext,
+icons, captions) must be #FFFFFF. Apply text colour explicitly to
+every element based on its own background, not the parent page
+background. Do not infer — be explicit on every element.
+
+Define all colours as CSS custom properties in :root in
+styles/styles.css. Never hardcode colour hex values in HTML.
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 2 — TYPOGRAPHY: CSS VARIABLE FONT SETTINGS
+═══════════════════════════════════════════════════════════════
+
+Load Roboto Serif from Google Fonts via a <link> tag in <head>.
+Roboto Serif is a variable font. Use font-variation-settings for
+all axes. Do not substitute a system serif fallback as the primary
+font.
+
+Google Fonts import URL to place in <head>:
+https://fonts.googleapis.com/css2?family=Roboto+Serif:ital,opsz,wdth,wght,GRAD@0,8..144,50..150,100..900,-50..100&display=swap
+
+Heading 1 (H1 — page title and hero headline):
+  font-family: 'Roboto Serif', serif;
+  font-size: 45px;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'opsz' 45, 'wdth' 125, 'wght' 500;
+
+Heading 2 (H2 — section headings):
+  font-family: 'Roboto Serif', serif;
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'opsz' 28, 'wdth' 112.5, 'wght' 500, 'GRAD' 49;
+
+Body / Normal text:
+  font-family: 'Roboto Serif', serif;
+  font-size: 19px;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'opsz' 19, 'wdth' 112.5, 'wght' 400, 'GRAD' -50;
+
+Mobile override (below 768px):
+  H1: font-size: 28px
+  Body: font-size: 16px
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 3 — ASSETS: EXACT PATHS, DO NOT REPLACE OR REGENERATE
+═══════════════════════════════════════════════════════════════
+
+All files listed below already exist in the repository.
+Reference them at the exact paths shown. Do not overwrite,
+regenerate, or create placeholder versions of any of them.
+File paths inside HTML are always relative to the site root,
+never prefixed with the repository name.
+
+Logo:
+  Path: /assets/images/logo_updated.svg
+  Usage: displayed in the global header, left side
+  Embed as:
+    <img src="/assets/images/logo_updated.svg"
+         alt="Rin_sporfolio logo"
+         role="img"
+         aria-label="Rin_sporfolio logo"
+         height="36">
+
+Hero background (video — NOT a static image):
+  Path: /assets/images/optimized_Frame_len_increased.webm
+  Type: video/webm
+  This is a background video. Embed using a <video> element,
+  NOT <img> and NOT CSS background-image.
+  The video must be positioned absolutely to fill the hero
+  section with object-fit: cover.
+  Attributes required: autoplay muted loop playsinline
+  aria-hidden="true" (it is decorative, screen readers skip it)
+  Poster (shown before video loads):
+    /assets/images/optimized_fallback_hero_image.svg
+
+  Embed the video exactly as follows:
+    <video
+      class="hero-video"
+      autoplay
+      muted
+      loop
+      playsinline
+      aria-hidden="true"
+      poster="/assets/images/optimized_fallback_hero_image.svg">
+      <source
+        src="/assets/images/optimized_Frame_len_increased.webm"
+        type="video/webm">
+    </video>
+
+  CSS for the video and its container:
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #0B0859;
+    }
+    .hero-video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 8, 89, 0.6);
+      z-index: 1;
+    }
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #FFFFFF;
+    }
+
+Fallback hero image:
+  Path: /assets/images/optimized_fallback_hero_image.svg
+  Used only as the poster attribute on the <video> element.
+  Do not embed it separately anywhere else.
+
+Open Graph image:
+  Path: /assets/images/open_graph_image_optimized.png
+  Used only in the og:image meta tag. Not displayed on the page.
+
+Favicon files — ALREADY EXIST in assets/icons/:
+  Do not generate these files. Reference them only via the
+  exact HTML snippet in the FAVICON section below.
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 4 — FAVICON: INSERT EXACTLY AS-IS, DO NOT MODIFY
+═══════════════════════════════════════════════════════════════
+
+Insert the following tags into the <head> of every HTML file.
+Do not modify paths, filenames, or version strings in any way.
+
+<link rel="icon" type="image/png" href="/assets/icons/favicon-96x96.png?v=2026.06.29" sizes="96x96" />
+<link rel="icon" type="image/svg+xml" href="/assets/icons/favicon.svg?v=2026.06.29" />
+<link rel="shortcut icon" href="/assets/icons/favicon.ico?v=2026.06.29" />
+<link rel="apple-touch-icon" sizes="180x180" href="/assets/icons/apple-touch-icon.png?v=2026.06.29" />
+<meta name="apple-mobile-web-app-title" content="Rin_portf" />
+<link rel="manifest" href="/assets/icons/site.webmanifest?v=2026.06.29" />
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 5 — LAYOUT: TWO COLUMNS ONLY, NO LEFT SIDEBAR
+═══════════════════════════════════════════════════════════════
+
+This site uses a TWO-COLUMN layout exclusively:
+  Column 1 (center): main content
+  Column 2 (right): "On this page" TOC
+
+There is NO left navigation column, NO left sidebar, and NO
+third column of any kind. Do not add, invent, or reference a
+left sidebar anywhere in the HTML, CSS, or JS.
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 6 — GLOBAL HEADER: FULL SPECIFICATION
+═══════════════════════════════════════════════════════════════
+
+  - Semantic element: <header>
+  - Full width, sticky to top of viewport (position: sticky;
+    top: 0; z-index: 100)
+  - Background: #0B0859 (accent deep navy)
+  - All text and links inside header: #FFFFFF
+  - Height: 64px on desktop
+
+  Left side:
+    Logo image (see ASSETS section for exact embed code)
+
+  Center-right:
+    Horizontal primary navigation (<nav> with aria-label="Primary navigation")
+    Links in this order: Blogs | Achievements | About
+      Blogs        → blogs.html
+      Achievements → achievements.html
+      About        → index.html
+    Link text color: #FFFFFF
+    Hover color: #0FBA4C
+    Active link indicator: underline or left border in #0FBA4C
+
+  Far right:
+    LinkedIn CTA button
+      Label: "LinkedIn"
+      href: https://www.linkedin.com/in/ruqayya-waheed-9b3412359
+      target="_blank" rel="noopener noreferrer"
+      Style: filled button, background #0FBA4C, text #FFFFFF,
+             border-radius: 6px, padding: 8px 16px
+
+  Mobile (below 768px):
+    Logo remains visible on the left
+    Nav links and LinkedIn button collapse behind a hamburger toggle
+    Hamburger button:
+      aria-expanded="false" (toggled via JS)
+      aria-controls="mobile-menu"
+      aria-label="Open navigation menu"
+    When open, nav links and LinkedIn button appear in a vertical
+    dropdown below the header
+    Background of dropdown: #0B0859
+    All text in dropdown: #FFFFFF
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 7 — HERO SECTION
+═══════════════════════════════════════════════════════════════
+
+  - Full-width section directly below the header
+  - Background: #0B0859 with the hero video overlaid (see ASSETS
+    and the CSS in the ASSETS section for exact implementation)
+  - Semi-transparent overlay on top of video: rgba(11, 8, 89, 0.6)
+  - Minimum height: 100vh
+  - All text: #FFFFFF
+
+  Content (use exactly as written, do not paraphrase):
+    H1: "Python developer, building fast and accessible apps."
+    Subheadline <p>:
+      "I design & build responsive Django applications integrating
+       UI frameworks for seamless user experience."
+    CTA button:
+      Label: "See my work"
+      href: /projects
+      Note: /projects does not exist yet — include the href as-is
+            as a placeholder
+      Style: background #0FBA4C, text #FFFFFF,
+             border-radius: 6px, padding: 12px 24px
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 8 — TWO-COLUMN LAYOUT WIDTHS AND BREAKPOINTS
+═══════════════════════════════════════════════════════════════
+
+  Desktop (above 1024px):
+    display: grid;
+    grid-template-columns: 70% 26%;
+    gap: 4%;
+
+  Tablet (768px–1024px):
+    Single column — TOC hidden behind toggle
+
+  Mobile (below 768px):
+    Single column
+    Header collapses to compact layout with hamburger menu
+    TOC hidden behind "On this page" toggle above the content
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 9 — TOC: FULL BEHAVIOUR SPECIFICATION
+═══════════════════════════════════════════════════════════════
+
+  - Semantic element: <aside> with aria-label="On this page"
+  - Sticky: position: sticky; top: 80px
+  - Heading: "On this page" displayed as a label above the list
+  - Automatically generated from all H2 and H3 headings in the
+    main content column
+  - H3 items are indented under their parent H2
+  - Clicking any TOC item smoothly scrolls to that section
+    (add scroll-behavior: smooth to the html element in CSS)
+  - Active state: the TOC item for the section currently in the
+    viewport is highlighted with color #0FBA4C
+    (implement via IntersectionObserver in scripts/main.js)
+  - Mobile (below 1024px):
+    TOC is hidden by default
+    A toggle button labeled "On this page" appears above the
+    main content
+    Clicking it expands or collapses the TOC
+    Button must have aria-expanded and aria-controls attributes
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 10 — NAV LINK DESTINATIONS
+═══════════════════════════════════════════════════════════════
+
+  Blogs        → blogs.html   (separate HTML page)
+  Achievements → achievements.html  (separate HTML page)
+  About        → index.html   (main page — this is the about page)
+
+  blogs.html and achievements.html must:
+    - Use the identical <header> and <footer> as index.html
+    - Contain a <main> with a single placeholder <p>:
+        blogs.html: "Blog posts coming soon."
+        achievements.html: "Achievements coming soon."
+    - Include all the same <head> meta tags and favicon links
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 11 — CONTACT FORM: FIELDS AND EMAIL
+═══════════════════════════════════════════════════════════════
+
+  Place the contact section at the bottom of the main content
+  column, above the footer.
+
+  Heading (H2): "Contact me"
+
+  Form fields in this order:
+    1. Name:    type="text",     required, label "Your Name"
+    2. Email:   type="email",    required, label "Your Email"
+    3. Message: <textarea>,      required, label "Message",
+                rows="4"
+    4. Submit:  type="submit",   label "Send Message"
+                background: #0FBA4C, text: #FFFFFF
+
+  Form attributes:
+    action="mailto:rinwatanabe00@gmail.com"
+    method="POST"
+    enctype="text/plain"
+
+  Immediately after the closing </form> tag, insert this comment:
+  <!--
+    TO USE FORMSPREE INSTEAD OF MAILTO:
+    1. Go to https://formspree.io and create a free account.
+    2. Create a new form and copy your form endpoint URL.
+    3. Replace the form action attribute with your endpoint:
+       action="https://formspree.io/f/your-form-id"
+    4. Change method to "POST" and remove enctype="text/plain".
+    5. Remove the mailto action entirely.
+  -->
+
+  Below the form, display:
+    LinkedIn: https://www.linkedin.com/in/ruqayya-waheed-9b3412359
+    GitHub:   https://github.com/ruqzzz
+    Both open in a new tab (target="_blank" rel="noopener noreferrer")
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 12 — FOOTER
+═══════════════════════════════════════════════════════════════
+
+  - Semantic element: <footer>
+  - Full width
+  - Background: #0B0859
+  - All text: #FFFFFF
+  - Padding: 48px top and bottom
+  - Content (centered):
+      GitHub link:   https://github.com/ruqzzz
+      LinkedIn link: https://www.linkedin.com/in/ruqayya-waheed-9b3412359
+      Both open in new tab
+      Copyright: © 2026 Rin Watanabe. All rights reserved.
+  - No other content in the footer.
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 13 — SEO AND OPEN GRAPH META TAGS
+═══════════════════════════════════════════════════════════════
+
+Insert in <head> of every HTML file:
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rin_sporfolio — [Page Name]</title>
+  <meta name="description" content="[Page-specific description]">
+
+Open Graph tags (index.html only):
+  <meta property="og:title" content="Rin_sporfolio">
+  <meta property="og:description" content="Python developer,
+        building fast and accessible apps.">
+  <meta property="og:image"
+        content="/assets/images/open_graph_image_optimized.png">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/">
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 14 — MIT LICENSE
+═══════════════════════════════════════════════════════════════
+
+  Generate a standard MIT License file with:
+    Name: Rin Watanabe
+    Year: 2026
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 15 — EXISTING ASSET FILES: DO NOT OVERWRITE
+═══════════════════════════════════════════════════════════════
+
+The following files already exist. Do not generate placeholder
+content for them. Do not include their file contents in your
+output. Only reference them via their paths in HTML and CSS.
+
+  assets/images/logo_updated.svg               ← ALREADY EXISTS
+  assets/images/optimized_Frame_len_increased.webm  ← ALREADY EXISTS
+  assets/images/optimized_fallback_hero_image.svg   ← ALREADY EXISTS
+  assets/images/open_graph_image_optimized.png      ← ALREADY EXISTS
+  assets/icons/favicon-96x96.png               ← ALREADY EXISTS
+  assets/icons/favicon.svg                     ← ALREADY EXISTS
+  assets/icons/favicon.ico                     ← ALREADY EXISTS
+  assets/icons/apple-touch-icon.png            ← ALREADY EXISTS
+  assets/icons/site.webmanifest               ← ALREADY EXISTS
+
+
+═══════════════════════════════════════════════════════════════
+ISSUE 16 — FEATURES TO OMIT ENTIRELY
+═══════════════════════════════════════════════════════════════
+
+Do not include any of the following — they are not part of
+this site:
+  - Left sidebar or left navigation panel
+  - Mock deployment logs or status area
+  - toc-icon.svg or code-icon.svg
+  - Dark mode toggle
+  - Search bar
+  - Any feature not explicitly described in this prompt
+
+
+═══════════════════════════════════════════════════════════════
+ACCESSIBILITY REQUIREMENTS
+═══════════════════════════════════════════════════════════════
+
+  - First element inside <body>: skip-to-content link
+    <a href="#main-content" class="skip-link">Skip to content</a>
+    Visually hidden until focused; on focus: visible with
+    background #0FBA4C, text #FFFFFF
+  - Keyboard focus: visible focus ring on all interactive elements
+    Do not suppress outline with outline: none anywhere
+  - ARIA labels: on <nav>, hamburger toggle, TOC toggle,
+    and all form inputs and textareas
+  - Semantic landmarks: <header>, <nav>, <main id="main-content">,
+    <aside>, <footer>
+  - Heading order: H1 → H2 → H3, never skip levels
+  - All images: descriptive alt text
+  - Hero <video>: aria-hidden="true" (decorative, not content)
+  - Color contrast: all text meets WCAG AA minimum
+    (4.5:1 for body text, 3:1 for large text/headings)
+
+
+═══════════════════════════════════════════════════════════════
+RESPONSIVE BEHAVIOUR
+═══════════════════════════════════════════════════════════════
+
+Mobile-first approach. Write base CSS for mobile, then use
+min-width media queries for larger viewports.
+
+Mobile (default, below 768px):
+  - Single column
+  - Header: compact, hamburger menu
+  - Hero H1: 28px, subheadline: 16px
+  - TOC: hidden, toggle button visible above content
+
+Tablet (768px–1024px):
+  - Single column
+  - Header: full nav visible (no hamburger)
+  - TOC: hidden, toggle button visible
+
+Desktop (above 1024px):
+  - Two-column grid (70% content / 26% TOC / 4% gap)
+  - Header: full nav visible
+  - TOC: always visible, sticky
+
+
+═══════════════════════════════════════════════════════════════
+CONTENT — USE VERBATIM, DO NOT REWRITE OR REORDER
+═══════════════════════════════════════════════════════════════
+
+Populate the main content column using the content below.
+Do not rewrite, summarize, reorder, or omit any of it.
+
+The Skills and Tools section is formatted as an ASCII table
+in the source — convert it to a proper semantic HTML <table>
+with <thead>, <tbody>, <th>, and <td> elements.
+
+Render all skill/tool names as inline badge elements:
+  background: #800FF2, color: #FFFFFF,
+  border-radius: 4px, padding: 2px 8px, font-size: 14px
+
+--- CONTENT STARTS BELOW THIS LINE ---
+
+# Home Hero
+
+## Hero Headline: Python developer, building fast and accessible apps.
+### Hero Sub headline: I design & build responsive Django applications integrating UI frameworks for seamless user experience.
+
+## Hero CTA Text and Target (Button text and where it links): See my work -> /projects
+
+----
+
+# About Me:
+
+* I am a Python Developer who loves to create innovative solutions using my skills.
+* My technical skills include but are not limited to C#, Linux, MySQL (Oracle SQL), Python, HTML, CSS.
+* Currently, I am pursuing a cybersecurity certification program from ISC2.
+* I currently stay and work in Dubai, U.A.E.
+
+# Work Experience:
+
+* Company Name: BackOffice FZ.LLC (Dubai Outsource City) 2023-2025
+* Worked as a Data Analyst, maintained and optimized SQL queries, and delivered interactive Dashboards via PowerBI/Tableau.
+* Top achievement: Proficiently Managed and designed CI/CD pipelines.
+
+## Skills and Tools:
+
+[Convert this ASCII table to a proper HTML <table>]
+Languages: Python, C/C++, SQL (MySQL), Bash/Shell Scripting
+Operating Systems: Linux, Git/GitHub, Docker, Virtual Environments
+Backend & Data Engineering: REST APIs, ELT/ETL Pipelines, Web scraping, Multi-threading, Data hashing
+
+## Education and Certifications:
+
+* MBA in Data Analytics and Supply Chain Management.
+* Python and C certified
+
+---
+
+# Projects
+
+# 1. Web Spyyder
+
+## Description: Designed a high performance web scraper using, and optimized it through multithreading.
+
+## Role: Web scraping tool with features like data hashing, multithreading to prevent redundant processing, managed code reproducibility and collaborative development using Git Version Control, reducing server load by 20%.
+
+## Tech Stack: Python, REST APIs, Git.
+
+## Highlights: Reduced server load by 20% during data processing. Managed code reproducibility.
+
+## Link: https://github.com/ruqzzz/web_spyder_project
+
+---
+
+# Contact & Footer
+
+# Contact me:
+* LinkedIn: https://www.linkedin.com/in/ruqayya-waheed-9b3412359
+* GitHub: https://github.com/ruqzzz
+
+--- CONTENT ENDS ABOVE THIS LINE ---
+
+
+═══════════════════════════════════════════════════════════════
+REPOSITORY STRUCTURE
+═══════════════════════════════════════════════════════════════
+
+Generate the following files. Files marked ALREADY EXISTS must
+not have their contents generated — reference them only.
+
+  index.html
+  blogs.html
+  achievements.html
+  docs/sample-page.html
+  styles/styles.css
+  scripts/main.js
+  assets/images/logo_updated.svg              ← ALREADY EXISTS
+  assets/images/optimized_Frame_len_increased.webm  ← ALREADY EXISTS
+  assets/images/optimized_fallback_hero_image.svg   ← ALREADY EXISTS
+  assets/images/open_graph_image_optimized.png      ← ALREADY EXISTS
+  assets/icons/favicon-96x96.png              ← ALREADY EXISTS
+  assets/icons/favicon.svg                    ← ALREADY EXISTS
+  assets/icons/favicon.ico                    ← ALREADY EXISTS
+  assets/icons/apple-touch-icon.png           ← ALREADY EXISTS
+  assets/icons/site.webmanifest              ← ALREADY EXISTS
+  .gitignore
+  LICENSE
+  README.md
+  deploy/notes.txt
+  404.html
+
+
+═══════════════════════════════════════════════════════════════
+REQUIREMENTS FOR GENERATED CODE
+═══════════════════════════════════════════════════════════════
+
+1.  Use semantic HTML5 and ARIA throughout: <header>, <nav>,
+    <main>, <aside>, <footer>.
+2.  Define all colours as CSS custom properties in :root in
+    styles/styles.css. Never hardcode hex values in HTML.
+3.  Two-column responsive layout as specified. No third column.
+4.  Main content populated verbatim from the CONTENT section.
+5.  ASCII skills table converted to a semantic HTML <table>.
+6.  Header and footer markup identical across all HTML pages.
+7.  Skip-to-content link and keyboard-accessible hamburger
+    and TOC toggles.
+8.  All meta and Open Graph tags as specified in SEO section.
+9.  Favicon <link> tags inserted exactly as provided, unmodified.
+10. HTML/CSS/JS comments indicating where to edit content,
+    colours, and image paths.
+11. Fully static site. No server-side code.
+12. Hero video implemented with <video> element exactly as
+    specified in the ASSETS section. Not as CSS background-image.
+13. blogs.html and achievements.html use identical header and
+    footer to index.html with placeholder main content only.
+
+
+═══════════════════════════════════════════════════════════════
+DELIVERABLES — EXACT OUTPUT FORMAT
+═══════════════════════════════════════════════════════════════
+
+1. Output the complete file tree of all files to be created.
+2. For each file, output the exact file path as a heading
+   followed by the complete file contents.
+   Do not output contents for files marked ALREADY EXISTS.
+3. At the end, include a step-by-step checklist covering:
+   a) Git commands to initialise the repo and push to GitHub.
+   b) How to connect the GitHub repo to Cloudflare Pages:
+        - Go to Cloudflare Pages dashboard
+        - Click "Create a project" → "Connect to Git"
+        - Select your GitHub repository
+        - Build command: leave blank
+        - Output directory: /
+        - Branch to deploy: main
+   c) After deployment, the site will be live at:
+        https://[your-project-name].pages.dev
+      No custom domain setup is required.
+
+
+═══════════════════════════════════════════════════════════════
+ADDITIONAL INSTRUCTIONS
+═══════════════════════════════════════════════════════════════
+
+- Do not ask follow-up questions.
+- Do not generate placeholder content for any file marked
+  ALREADY EXISTS.
+- Do not add any feature not explicitly described in this prompt.
+- Do not add a left sidebar, mock deployment logs, dark mode
+  toggle, search bar, or any other uninstructed feature.
+- Produce all generated repository files in full, directly in
+  the response, so they can be copied into a new Git repository
+  and pushed to GitHub without modification.

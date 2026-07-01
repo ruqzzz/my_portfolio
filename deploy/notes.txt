@@ -1,0 +1,55 @@
+Rin_sporfolio — Cloudflare Pages Deployment Notes
+==================================================
+
+Prerequisites
+-------------
+- GitHub account with the repository pushed
+- Cloudflare account (free tier works)
+
+Step 1: Push to GitHub
+----------------------
+From the repository root:
+
+  git init
+  git add .
+  git commit -m "Initial portfolio site"
+  git branch -M main
+  git remote add origin https://github.com/YOUR_USERNAME/YOUR_REPO.git
+  git push -u origin main
+
+Step 2: Connect to Cloudflare Pages
+------------------------------------
+1. Log in to the Cloudflare dashboard
+2. Go to Workers & Pages → Create application → Pages
+3. Click "Connect to Git"
+4. Authorize GitHub and select your repository
+
+Step 3: Build settings
+----------------------
+- Framework preset: None (or "None")
+- Build command: (leave blank)
+- Build output directory: /
+- Root directory: (leave blank)
+- Branch to deploy: main
+
+Step 4: Deploy
+--------------
+Click "Save and Deploy". Cloudflare will build and publish the site.
+
+Step 5: Live URL
+----------------
+After deployment, the site is available at:
+
+  https://[your-project-name].pages.dev
+
+No custom domain setup is required.
+
+Custom 404
+----------
+Cloudflare Pages automatically serves 404.html for missing routes.
+
+Notes
+-----
+- This is a fully static site — no build step needed
+- All asset paths are absolute from site root (e.g. /assets/images/...)
+- Favicon cache-busting uses ?v=2026.06.29 query strings

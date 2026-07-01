@@ -1,0 +1,596 @@
+/* ==========================================================================
+   Rin_sporfolio — Global Styles
+   Edit colours in :root. Edit layout breakpoints in the media queries below.
+   ========================================================================== */
+
+/* --- Colour system (edit here, never hardcode hex in HTML) --- */
+:root {
+  --color-primary-green: #0FBA4C;
+  --color-primary-blue: #2168EB;
+  --color-secondary-purple: #800FF2;
+  --color-accent-navy: #0B0859;
+  --color-accent-indigo: #1E0D8C;
+  --color-bg-white: #FFFFFF;
+  --color-text-black: #000000;
+  --color-text-white: #FFFFFF;
+
+  --hero-overlay: rgba(11, 8, 89, 0.6);
+
+  --header-height: 64px;
+  --header-z-index: 100;
+  --toc-sticky-top: 80px;
+
+  --font-family: 'Roboto Serif', serif;
+
+  --focus-ring: 2px solid var(--color-primary-green);
+  --focus-offset: 2px;
+}
+
+/* --- Smooth scrolling for TOC anchor links --- */
+html {
+  scroll-behavior: smooth;
+}
+
+/* --- Typography: mobile-first defaults --- */
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+  font-variation-settings: 'opsz' 16, 'wdth' 112.5, 'wght' 400, 'GRAD' -50;
+  background-color: var(--color-bg-white);
+  color: var(--color-text-black);
+  line-height: 1.6;
+}
+
+h1 {
+  font-family: var(--font-family);
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'opsz' 28, 'wdth' 125, 'wght' 500;
+  margin-top: 0;
+}
+
+h2 {
+  font-family: var(--font-family);
+  font-size: 28px;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'opsz' 28, 'wdth' 112.5, 'wght' 500, 'GRAD' 49;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-family: var(--font-family);
+  font-size: 22px;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: 'opsz' 22, 'wdth' 112.5, 'wght' 500, 'GRAD' 49;
+  margin-top: 1.5rem;
+  margin-bottom: 0.75rem;
+}
+
+/* --- Skip to content link --- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 1rem;
+  z-index: 1000;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-primary-green);
+  color: var(--color-text-white);
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* --- Focus styles (never suppress outline) --- */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+summary:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+/* --- Global header --- */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: var(--header-z-index);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+  padding: 0 1rem;
+  background-color: var(--color-accent-navy);
+  color: var(--color-text-white);
+}
+
+.site-header a {
+  color: var(--color-text-white);
+  text-decoration: none;
+}
+
+.site-header a:hover {
+  color: var(--color-primary-green);
+}
+
+.header-logo img {
+  display: block;
+  height: 36px;
+  width: auto;
+}
+
+.header-nav {
+  display: none;
+}
+
+.header-nav ul {
+  display: flex;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.header-nav a {
+  color: var(--color-text-white);
+  text-decoration: none;
+  padding-bottom: 2px;
+}
+
+.header-nav a:hover {
+  color: var(--color-primary-green);
+}
+
+.header-nav a.is-active {
+  color: var(--color-text-white);
+  border-bottom: 2px solid var(--color-primary-green);
+}
+
+.header-actions {
+  display: none;
+  align-items: center;
+  gap: 1rem;
+}
+
+.btn-linkedin {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--color-primary-green);
+  color: var(--color-text-white);
+  text-decoration: none;
+  border-radius: 6px;
+  font-size: 14px;
+  white-space: nowrap;
+}
+
+.btn-linkedin:hover {
+  color: var(--color-text-white);
+  filter: brightness(1.1);
+}
+
+/* --- Hamburger menu (mobile) --- */
+.menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.menu-toggle-bar {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--color-text-white);
+  margin: 0 auto;
+}
+
+.mobile-menu {
+  display: none;
+  position: absolute;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  background-color: var(--color-accent-navy);
+  padding: 1rem;
+  z-index: calc(var(--header-z-index) - 1);
+}
+
+.mobile-menu.is-open {
+  display: block;
+}
+
+.mobile-menu ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile-menu li {
+  margin-bottom: 0.75rem;
+}
+
+.mobile-menu a {
+  color: var(--color-text-white);
+  text-decoration: none;
+  display: block;
+  padding: 0.5rem 0;
+}
+
+.mobile-menu a:hover {
+  color: var(--color-primary-green);
+}
+
+.mobile-menu a.is-active {
+  border-left: 3px solid var(--color-primary-green);
+  padding-left: 0.75rem;
+}
+
+.mobile-menu .btn-linkedin {
+  margin-top: 0.5rem;
+}
+
+.site-header-wrapper {
+  position: relative;
+}
+
+/* --- Hero section --- */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-accent-navy);
+}
+
+.hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--hero-overlay);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: var(--color-text-white);
+  padding: 2rem 1.5rem;
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  color: var(--color-text-white);
+  margin-bottom: 1rem;
+}
+
+.hero-content p {
+  color: var(--color-text-white);
+  font-size: 16px;
+  margin-bottom: 1.5rem;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 24px;
+  background-color: var(--color-primary-green);
+  color: var(--color-text-white);
+  text-decoration: none;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  color: var(--color-text-white);
+  filter: brightness(1.1);
+}
+
+/* --- Body hyperlinks --- */
+main a:not(.btn-primary):not(.btn-linkedin):not(.btn-outline) {
+  color: var(--color-primary-blue);
+}
+
+main a:not(.btn-primary):not(.btn-linkedin):not(.btn-outline):hover {
+  color: var(--color-primary-green);
+}
+
+/* --- Two-column layout --- */
+.page-layout {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* --- TOC toggle (tablet/mobile) --- */
+.toc-toggle {
+  display: flex;
+  width: 100%;
+  padding: 0.75rem 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--color-accent-navy);
+  color: var(--color-text-white);
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 16px;
+  text-align: left;
+}
+
+.toc-toggle:hover {
+  background-color: var(--color-accent-indigo);
+}
+
+/* --- TOC sidebar --- */
+.toc-sidebar {
+  display: none;
+}
+
+.toc-sidebar.is-expanded {
+  display: block;
+}
+
+.toc-sidebar .toc-label {
+  font-size: 14px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.75rem;
+  color: var(--color-text-black);
+}
+
+.toc-sidebar nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-sidebar nav li {
+  margin-bottom: 0.5rem;
+}
+
+.toc-sidebar nav a {
+  color: var(--color-text-black);
+  text-decoration: none;
+  font-size: 14px;
+  display: block;
+  padding: 0.25rem 0;
+  border-left: 2px solid transparent;
+  padding-left: 0.5rem;
+}
+
+.toc-sidebar nav a:hover {
+  color: var(--color-primary-green);
+}
+
+.toc-sidebar nav a.is-active {
+  color: var(--color-primary-green);
+  border-left-color: var(--color-primary-green);
+}
+
+.toc-sidebar nav li.toc-h3 a {
+  padding-left: 1.25rem;
+}
+
+/* --- Main content --- */
+.main-content section {
+  margin-bottom: 2rem;
+}
+
+.main-content ul {
+  padding-left: 1.25rem;
+}
+
+.main-content ul li {
+  margin-bottom: 0.5rem;
+}
+
+/* --- Skill badges in table --- */
+.skill-badge {
+  display: inline-block;
+  background-color: var(--color-secondary-purple);
+  color: var(--color-text-white);
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 14px;
+  margin: 2px 4px 2px 0;
+}
+
+/* --- Skills table --- */
+.skills-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+
+.skills-table th,
+.skills-table td {
+  border: 1px solid var(--color-primary-blue);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  vertical-align: top;
+  color: var(--color-text-black);
+  background-color: var(--color-bg-white);
+}
+
+.skills-table th {
+  width: 30%;
+  font-weight: 500;
+}
+
+/* --- Contact form --- */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.375rem;
+}
+
+.form-group label {
+  color: var(--color-text-black);
+  font-weight: 500;
+}
+
+.form-group input,
+.form-group textarea {
+  padding: 0.625rem 0.75rem;
+  border: 1px solid var(--color-primary-blue);
+  border-radius: 4px;
+  font-family: var(--font-family);
+  font-size: 16px;
+  color: var(--color-text-black);
+  background-color: var(--color-bg-white);
+}
+
+.contact-links {
+  margin-top: 1.5rem;
+}
+
+.contact-links p {
+  margin: 0.5rem 0;
+}
+
+/* --- Footer --- */
+.site-footer {
+  background-color: var(--color-accent-navy);
+  color: var(--color-text-white);
+  padding: 48px 1rem;
+  text-align: center;
+}
+
+.site-footer a {
+  color: var(--color-text-white);
+  text-decoration: underline;
+}
+
+.site-footer a:hover {
+  color: var(--color-primary-green);
+}
+
+.site-footer p {
+  margin: 0.5rem 0;
+  color: var(--color-text-white);
+}
+
+/* --- 404 page --- */
+.error-page {
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+}
+
+/* --- Tablet: 768px+ --- */
+@media (min-width: 768px) {
+  body {
+    font-size: 19px;
+    font-variation-settings: 'opsz' 19, 'wdth' 112.5, 'wght' 400, 'GRAD' -50;
+  }
+
+  h1 {
+    font-size: 45px;
+    font-variation-settings: 'opsz' 45, 'wdth' 125, 'wght' 500;
+  }
+
+  .hero-content p {
+    font-size: 19px;
+  }
+
+  .site-header {
+    padding: 0 2rem;
+  }
+
+  .header-nav {
+    margin-left: auto;
+  }
+
+  .menu-toggle {
+    display: none;
+  }
+
+  .mobile-menu {
+    display: none !important;
+  }
+
+  .header-nav {
+    display: block;
+  }
+
+  .header-actions {
+    display: flex;
+  }
+}
+
+/* --- Desktop: 1024px+ --- */
+@media (min-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 70% 26%;
+    gap: 4%;
+  }
+
+  .toc-toggle {
+    display: none;
+  }
+
+  .toc-sidebar {
+    display: block;
+    position: sticky;
+    top: var(--toc-sticky-top);
+    align-self: start;
+  }
+
+  .toc-sidebar.is-expanded {
+    display: block;
+  }
+}
